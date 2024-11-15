@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký - Book Haven</title>
+    <style>
+        /* Định dạng tổng quát */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f8ff; /* Màu nền nhẹ nhàng */
+            color: #333;
+        }
+
+        .form-container {
+            width: 90%;
+            max-width: 360px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .home-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #333; /* Màu đen xám */
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.1s;
+        }
+
+        .home-button:hover {
+            background-color: #555; /* Màu đậm hơn khi hover */
+        }
+
+        .home-button:active {
+            transform: scale(0.95); /* Hiệu ứng click */
+            background-color: #444; /* Màu nhấn khi click */
+        }
+
+        h2 {
+            color: #4a4a4a;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        input[type="date"]:focus {
+            border-color: #6e8efb;
+            box-shadow: 0 0 3px rgba(110, 142, 251, 0.3);
+            outline: none;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 12px;
+            margin-top: 3px;
+        }
+
+        .facebook-button,
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #fff;
+            margin-top: 8px;
+            transition: background 0.3s ease;
+            position: relative;
+        }
+
+        .facebook-button {
+            background-color: #4267b2;
+        }
+
+        .facebook-button:hover {
+            background-color: #365492;
+        }
+
+        .facebook-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        button {
+            background-color: #000; /* Màu nút đăng ký đen */
+        }
+
+        button:hover {
+            background-color: #333; /* Hiệu ứng hover cho nút đăng ký */
+        }
+
+        .separator {
+            color: #888;
+            font-size: 12px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .separator::before,
+        .separator::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 35%;
+            height: 1px;
+            background-color: #ddd;
+        }
+
+        .separator::before {
+            left: 0;
+        }
+
+        .separator::after {
+            right: 0;
+        }
+
+        .login-container {
+            margin-top: 12px;
+            font-size: 12px;
+            color: #6e8efb;
+        }
+
+        .login-link {
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .login-link:hover {
+            text-decoration: underline;
+            color: #ff6b6b; /* Đổi màu khi hover */
+        }
+
+        .show-password {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .show-password input {
+            width: auto;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <!-- Nút về trang chủ -->
+        <a href="trangchu.html" class="home-button">Book Haven</a>
+
+        <h2>Đăng Ký</h2>
+
+        <!-- Đăng ký bằng Facebook -->
+        <a href="https://www.facebook.com/" target="_blank" class="facebook-button">
+            <img class="facebook-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook Logo">
+            Đăng ký bằng Facebook
+        </a>
+
+        <div class="separator">Hoặc đăng ký dùng email</div>
+
+        <!-- Form Đăng ký thông thường -->
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="fullname">Họ và Tên</label>
+                <input type="text" id="fullname" name="fullname" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message" id="emailError"></span>
+            </div>
+            <div class="form-group">
+                <label for="dob">Ngày Sinh</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" name="password" required>
+                <div class="show-password">
+                    <label>
+                        <input type="checkbox" id="showPassword1"> Hiện mật khẩu
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Nhập Lại Mật khẩu</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <div class="show-password">
+                    <label>
+                        <input type="checkbox" id="showPassword2"> Hiện mật khẩu
+                    </label>
+                </div>
+                <span class="error-message" id="passwordError"></span>
+            </div>
+            <button type="submit">Đăng Ký</button>
+        </form>
+
+        <!-- Đã có tài khoản? -->
+        <div class="login-container">
+            <p>Đã có tài khoản? <a href="login.html" class="login-link">Đăng nhập tại đây</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Ngăn chặn form gửi đi
+
+            // Kiểm tra email
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+            if (!emailInput.value.match(emailPattern)) {
+                emailError.textContent = 'Email không hợp lệ. Vui lòng nhập lại.';
+                return;
+            } else {
+                emailError.textContent = '';
+            }
+
+            // Kiểm tra mật khẩu
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const passwordError = document.getElementById('passwordError');
+
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                passwordError.textContent = 'Mật khẩu không khớp. Vui lòng nhập lại.';
+                return;
+            } else {
+                passwordError.textContent = '';
+            }
+
+            // Form hợp lệ, thực hiện đăng ký
+            alert('Đăng ký thành công!');
+            document.getElementById('registrationForm').reset();
+        });
+
+        // Hiện/Ẩn mật khẩu
+        document.getElementById('showPassword1').addEventListener('change', function() {
+            const passwordInput = document.getElementById('password');
+            passwordInput.type = this.checked ? 'text' : 'password';
+        });
+
+        document.getElementById('showPassword2').addEventListener('change', function() {
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            confirmPasswordInput.type = this.checked ? 'text' : 'password';
+        });
+    </script>
+</body>
+</html>
